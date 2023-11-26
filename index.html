@@ -1,0 +1,66 @@
+<!-- 
+    SITE 1101 Principles of Information Systems Fall 2022 
+    (c)2022 by Khayyam Najafli and Nargiz Mirzayeva
+    Submitted in partial fulfillment of the requirements of the course.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 3 Project</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div id="loadingScreen">
+        <div id="loadingSpinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <div>
+        <img src="media/ada_logo_white.png" alt="ADA logo" class="logo">
+    </div>
+    <div class="navbar" id="myNavbar">
+        <a href="index.html">Home</a>
+        <a href="members.html">Members</a>
+        <a href="Hour.html">Hour of Code</a>
+        <a href="About.html">About our project</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="content">
+
+        <h1 id="dynamicText"></h1>
+        <h2>ADA University</h2>
+
+    </div>
+
+    <script>
+        const dynamicTextElement = document.getElementById('dynamicText');
+        const textToWrite = 'Code Crafters';
+        let index = 0;
+
+        function writeText() {
+            dynamicTextElement.textContent += textToWrite[index];
+            index++;
+
+            if (index < textToWrite.length) {
+                setTimeout(writeText, 100);
+            } else {
+                document.getElementById('loadingScreen').style.display = 'none';
+            }
+        }
+
+
+        window.onload = function () {
+            writeText();
+        };
+    </script>
+</body>
+</html>
